@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ingredientes));
             background = new Panel();
+            dataGridViewDados = new DataGridView();
             menu1 = new Menu();
             labelIngredientesCadastrados = new Label();
-            ingredientesCadastrados = new ListBox();
             btnCadastrar = new Button();
             inputNome = new TextBox();
             inputId = new TextBox();
@@ -40,14 +40,15 @@
             tituloIngredientes = new Label();
             labelId = new Label();
             background.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             SuspendLayout();
             // 
             // background
             // 
             background.BackColor = Color.Honeydew;
+            background.Controls.Add(dataGridViewDados);
             background.Controls.Add(menu1);
             background.Controls.Add(labelIngredientesCadastrados);
-            background.Controls.Add(ingredientesCadastrados);
             background.Controls.Add(btnCadastrar);
             background.Controls.Add(inputNome);
             background.Controls.Add(inputId);
@@ -59,6 +60,15 @@
             background.Name = "background";
             background.Size = new Size(800, 450);
             background.TabIndex = 4;
+            // 
+            // dataGridViewDados
+            // 
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.Location = new Point(586, 88);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(194, 233);
+            dataGridViewDados.TabIndex = 40;
             // 
             // menu1
             // 
@@ -77,18 +87,6 @@
             labelIngredientesCadastrados.Size = new Size(182, 20);
             labelIngredientesCadastrados.TabIndex = 38;
             labelIngredientesCadastrados.Text = " Ingredientes Cadastrados";
-            // 
-            // ingredientesCadastrados
-            // 
-            ingredientesCadastrados.BackColor = Color.DarkSeaGreen;
-            ingredientesCadastrados.FormattingEnabled = true;
-            ingredientesCadastrados.ItemHeight = 15;
-            ingredientesCadastrados.Items.AddRange(new object[] { "Queijo", "Orégano", "Molho de Tomate" });
-            ingredientesCadastrados.Location = new Point(586, 86);
-            ingredientesCadastrados.Name = "ingredientesCadastrados";
-            ingredientesCadastrados.Size = new Size(190, 274);
-            ingredientesCadastrados.TabIndex = 37;
-            ingredientesCadastrados.TabStop = false;
             // 
             // btnCadastrar
             // 
@@ -164,6 +162,7 @@
             Text = "Ingredientes";
             background.ResumeLayout(false);
             background.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             ResumeLayout(false);
         }
 
@@ -177,7 +176,7 @@
         private Label tituloIngredientes;
         private Label labelId;
         private Label labelIngredientesCadastrados;
-        private ListBox ingredientesCadastrados;
         private Menu menu1;
+        private DataGridView dataGridViewDados;
     }
 }

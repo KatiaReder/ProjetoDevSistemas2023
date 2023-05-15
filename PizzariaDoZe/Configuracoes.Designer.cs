@@ -36,13 +36,20 @@
             comboBoxIdioma = new ComboBox();
             labelIdioma = new Label();
             tituloConfiguracoes = new Label();
+            groupBoxBD = new GroupBox();
+            comboBoxProvider = new ComboBox();
+            labelProvider = new Label();
+            labelConexao = new Label();
+            textBoxConexao = new TextBox();
             background.SuspendLayout();
             groupBoxIdioma.SuspendLayout();
+            groupBoxBD.SuspendLayout();
             SuspendLayout();
             // 
             // background
             // 
             background.BackColor = Color.Honeydew;
+            background.Controls.Add(groupBoxBD);
             background.Controls.Add(btnSalvarIdioma);
             background.Controls.Add(groupBoxIdioma);
             background.Controls.Add(tituloConfiguracoes);
@@ -56,7 +63,7 @@
             // 
             btnSalvarIdioma.BackColor = Color.DarkSeaGreen;
             btnSalvarIdioma.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSalvarIdioma.Location = new Point(174, 282);
+            btnSalvarIdioma.Location = new Point(183, 314);
             btnSalvarIdioma.Name = "btnSalvarIdioma";
             btnSalvarIdioma.Size = new Size(246, 36);
             btnSalvarIdioma.TabIndex = 37;
@@ -70,9 +77,9 @@
             groupBoxIdioma.Controls.Add(comboBoxIdioma);
             groupBoxIdioma.Controls.Add(labelIdioma);
             groupBoxIdioma.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBoxIdioma.Location = new Point(36, 93);
+            groupBoxIdioma.Location = new Point(39, 51);
             groupBoxIdioma.Name = "groupBoxIdioma";
-            groupBoxIdioma.Size = new Size(547, 158);
+            groupBoxIdioma.Size = new Size(508, 116);
             groupBoxIdioma.TabIndex = 4;
             groupBoxIdioma.TabStop = false;
             groupBoxIdioma.Text = "Idioma/Região";
@@ -81,7 +88,7 @@
             // 
             checkBoxIdiomaReiniciar.AutoSize = true;
             checkBoxIdiomaReiniciar.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            checkBoxIdiomaReiniciar.Location = new Point(178, 69);
+            checkBoxIdiomaReiniciar.Location = new Point(175, 61);
             checkBoxIdiomaReiniciar.Name = "checkBoxIdiomaReiniciar";
             checkBoxIdiomaReiniciar.Size = new Size(329, 21);
             checkBoxIdiomaReiniciar.TabIndex = 2;
@@ -111,11 +118,61 @@
             // 
             tituloConfiguracoes.AutoSize = true;
             tituloConfiguracoes.Font = new Font("Trebuchet MS", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloConfiguracoes.Location = new Point(214, 22);
+            tituloConfiguracoes.Location = new Point(214, 9);
             tituloConfiguracoes.Name = "tituloConfiguracoes";
             tituloConfiguracoes.Size = new Size(206, 37);
             tituloConfiguracoes.TabIndex = 3;
             tituloConfiguracoes.Text = "Configurações";
+            // 
+            // groupBoxBD
+            // 
+            groupBoxBD.Controls.Add(textBoxConexao);
+            groupBoxBD.Controls.Add(labelConexao);
+            groupBoxBD.Controls.Add(comboBoxProvider);
+            groupBoxBD.Controls.Add(labelProvider);
+            groupBoxBD.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBoxBD.Location = new Point(39, 173);
+            groupBoxBD.Name = "groupBoxBD";
+            groupBoxBD.Size = new Size(596, 134);
+            groupBoxBD.TabIndex = 5;
+            groupBoxBD.TabStop = false;
+            groupBoxBD.Text = "Banco de Dados";
+            // 
+            // comboBoxProvider
+            // 
+            comboBoxProvider.FormattingEnabled = true;
+            comboBoxProvider.Items.AddRange(new object[] { "MySql.Data.MySqlClient", "System.Data.SqlClient" });
+            comboBoxProvider.Location = new Point(21, 63);
+            comboBoxProvider.Name = "comboBoxProvider";
+            comboBoxProvider.Size = new Size(180, 29);
+            comboBoxProvider.TabIndex = 1;
+            // 
+            // labelProvider
+            // 
+            labelProvider.AutoSize = true;
+            labelProvider.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelProvider.Location = new Point(21, 43);
+            labelProvider.Name = "labelProvider";
+            labelProvider.Size = new Size(53, 17);
+            labelProvider.TabIndex = 0;
+            labelProvider.Text = "Provider";
+            // 
+            // labelConexao
+            // 
+            labelConexao.AutoSize = true;
+            labelConexao.Font = new Font("Segoe UI Light", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelConexao.Location = new Point(227, 43);
+            labelConexao.Name = "labelConexao";
+            labelConexao.Size = new Size(108, 17);
+            labelConexao.TabIndex = 2;
+            labelConexao.Text = "String de Conexão";
+            // 
+            // textBoxConexao
+            // 
+            textBoxConexao.Location = new Point(227, 63);
+            textBoxConexao.Name = "textBoxConexao";
+            textBoxConexao.Size = new Size(352, 29);
+            textBoxConexao.TabIndex = 3;
             // 
             // Configuracoes
             // 
@@ -131,6 +188,8 @@
             background.PerformLayout();
             groupBoxIdioma.ResumeLayout(false);
             groupBoxIdioma.PerformLayout();
+            groupBoxBD.ResumeLayout(false);
+            groupBoxBD.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -143,5 +202,10 @@
         private Label labelIdioma;
         private Label tituloConfiguracoes;
         private ComboBox comboBoxIdioma;
+        private GroupBox groupBoxBD;
+        private ComboBox comboBoxProvider;
+        private Label labelProvider;
+        private TextBox textBoxConexao;
+        private Label labelConexao;
     }
 }

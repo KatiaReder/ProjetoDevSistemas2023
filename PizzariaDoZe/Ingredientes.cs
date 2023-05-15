@@ -45,14 +45,14 @@ namespace PizzariaDoZe
 
             if (inputNome.TextLength > TamanhoMaximo)
             {
-                MessageBox.Show("Favor analisar número de catracteres! Nome é obrigatório!");
+                MessageBox.Show("Favor analisar número de catracteres!");
                 return;
             }
 
            else if(inputNome.TextLength == 0)
             {
-                MessageBox.Show("Campo nome é obrigatório! Favor inserir um valor. ");
-                inputNome.BackColor = Color.Red;
+                MessageBox.Show("Campo nome é obrigatório! Favor inserir um valor.");
+                inputNome.BackColor = Color.Tomato;
                 return;
    
         

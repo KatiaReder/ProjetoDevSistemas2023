@@ -41,7 +41,7 @@ namespace PizzariaDoZe
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-             int TamanhoMaximo = 30;
+            int TamanhoMaximo = 30;
 
             if (inputNome.TextLength > TamanhoMaximo)
             {
@@ -49,13 +49,13 @@ namespace PizzariaDoZe
                 return;
             }
 
-           else if(inputNome.TextLength == 0)
+            else if (inputNome.TextLength == 0)
             {
                 MessageBox.Show("Campo nome é obrigatório! Favor inserir um valor.");
                 inputNome.BackColor = Color.Tomato;
                 return;
-   
-        
+
+
             }
             //Instância e Preenche o objeto com os dados da view
             var ingrediente = new Ingrediente

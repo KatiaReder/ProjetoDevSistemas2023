@@ -98,6 +98,16 @@ namespace PizzariaDoZe
             _ = config.ShowDialog();
 
         }
+
+        private void cadastrarEndereco_Click(object sender, EventArgs e)
+        {
+            Enderecos endereco = new()
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+            };
+
+            _ = endereco.ShowDialog();
+        }
         /// <summary>
         /// Eventos de KeyUp são responsáveis pelas ações de teclado
         /// disponibilizadas no "contextMenuStripPrincipal"
@@ -208,5 +218,7 @@ namespace PizzariaDoZe
                 _ = config.ShowDialog();
             }
         }
+
+
     }
 }

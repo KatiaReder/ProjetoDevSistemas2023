@@ -38,6 +38,7 @@
             cadastrarProdutos = new Button();
             cadastrarValores = new Button();
             btnConfig = new Button();
+            cadastrarEndereco = new Button();
             ((System.ComponentModel.ISupportInitialize)logoImg).BeginInit();
             SuspendLayout();
             // 
@@ -153,11 +154,22 @@
             btnConfig.Click += btnConfig_Click;
             btnConfig.KeyUp += btnConfig_KeyUp;
             // 
+            // cadastrarEndereco
+            // 
+            cadastrarEndereco.Location = new Point(17, 338);
+            cadastrarEndereco.Name = "cadastrarEndereco";
+            cadastrarEndereco.Size = new Size(107, 26);
+            cadastrarEndereco.TabIndex = 9;
+            cadastrarEndereco.Text = "Endereço";
+            cadastrarEndereco.UseVisualStyleBackColor = true;
+            cadastrarEndereco.Click += cadastrarEndereco_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
+            Controls.Add(cadastrarEndereco);
             Controls.Add(btnConfig);
             Controls.Add(cadastrarValores);
             Controls.Add(cadastrarProdutos);
@@ -187,5 +199,6 @@
         private Button cadastrarProdutos;
         private Button cadastrarValores;
         private Button btnConfig;
+        private Button cadastrarEndereco;
     }
 }

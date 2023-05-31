@@ -105,10 +105,10 @@
             // menu1
             // 
             menu1.BackColor = Color.DarkSeaGreen;
-            menu1.Location = new Point(1, 0);
+            menu1.Location = new Point(0, 0);
             menu1.Name = "menu1";
-            menu1.Size = new Size(138, 450);
-            menu1.TabIndex = 38;
+            menu1.Size = new Size(143, 450);
+            menu1.TabIndex = 40;
             // 
             // inputCep
             // 
@@ -117,6 +117,7 @@
             inputCep.Name = "inputCep";
             inputCep.Size = new Size(127, 23);
             inputCep.TabIndex = 4;
+            inputCep.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnCadastrar
             // 
@@ -128,6 +129,7 @@
             btnCadastrar.TabIndex = 12;
             btnCadastrar.Text = "Cadastrar ";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             btnCadastrar.KeyUp += btnCadastrar_KeyUp;
             // 
             // inputPais
@@ -152,7 +154,7 @@
             inputUF.Items.AddRange(new object[] { "Administrador", "Atendente", "Entregador" });
             inputUF.Location = new Point(525, 312);
             inputUF.Name = "inputUF";
-            inputUF.Size = new Size(64, 23);
+            inputUF.Size = new Size(159, 23);
             inputUF.TabIndex = 11;
             inputUF.Text = "SC";
             // 
@@ -314,14 +316,16 @@
             inputTelefone.Name = "inputTelefone";
             inputTelefone.Size = new Size(118, 23);
             inputTelefone.TabIndex = 2;
+            inputTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // inputCpf
             // 
             inputCpf.Location = new Point(355, 89);
-            inputCpf.Mask = "000,000,000-00";
+            inputCpf.Mask = "000.000.000-00";
             inputCpf.Name = "inputCpf";
             inputCpf.Size = new Size(118, 23);
             inputCpf.TabIndex = 1;
+            inputCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // inputNome
             // 

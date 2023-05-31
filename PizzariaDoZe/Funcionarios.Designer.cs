@@ -30,6 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Funcionarios));
             background = new Panel();
+            inputMatricula = new TextBox();
+            labelMatricula = new Label();
+            inputMotorista = new MaskedTextBox();
+            labelValidade = new Label();
+            dateTimePickerValidade = new DateTimePicker();
+            inputObservacao = new TextBox();
+            labelObservacao = new Label();
+            radioButtonGrupoEntregador = new RadioButton();
+            radioButtonGrupoAtendente = new RadioButton();
+            radioButtonGrupoAdmin = new RadioButton();
+            dataGridViewDados = new DataGridView();
             menu1 = new Menu();
             inputCep = new MaskedTextBox();
             btnCadastrar = new Button();
@@ -48,7 +59,6 @@
             labelNumero = new Label();
             labelLogradouro = new Label();
             labelCep = new Label();
-            inputMotorista = new TextBox();
             labelMotorista = new Label();
             inputSenha = new TextBox();
             inputEmail = new TextBox();
@@ -60,18 +70,29 @@
             inputNome = new TextBox();
             inputId = new TextBox();
             labelGrupo = new Label();
-            inputGrupo = new ComboBox();
             labelTelefone = new Label();
             labelNome = new Label();
             tituloFuncionarios = new Label();
             labelCpf = new Label();
             labelId = new Label();
             background.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             SuspendLayout();
             // 
             // background
             // 
             background.BackColor = Color.Honeydew;
+            background.Controls.Add(inputMatricula);
+            background.Controls.Add(labelMatricula);
+            background.Controls.Add(inputMotorista);
+            background.Controls.Add(labelValidade);
+            background.Controls.Add(dateTimePickerValidade);
+            background.Controls.Add(inputObservacao);
+            background.Controls.Add(labelObservacao);
+            background.Controls.Add(radioButtonGrupoEntregador);
+            background.Controls.Add(radioButtonGrupoAtendente);
+            background.Controls.Add(radioButtonGrupoAdmin);
+            background.Controls.Add(dataGridViewDados);
             background.Controls.Add(menu1);
             background.Controls.Add(inputCep);
             background.Controls.Add(btnCadastrar);
@@ -90,7 +111,6 @@
             background.Controls.Add(labelNumero);
             background.Controls.Add(labelLogradouro);
             background.Controls.Add(labelCep);
-            background.Controls.Add(inputMotorista);
             background.Controls.Add(labelMotorista);
             background.Controls.Add(inputSenha);
             background.Controls.Add(inputEmail);
@@ -102,7 +122,6 @@
             background.Controls.Add(inputNome);
             background.Controls.Add(inputId);
             background.Controls.Add(labelGrupo);
-            background.Controls.Add(inputGrupo);
             background.Controls.Add(labelTelefone);
             background.Controls.Add(labelNome);
             background.Controls.Add(tituloFuncionarios);
@@ -111,8 +130,115 @@
             background.Dock = DockStyle.Fill;
             background.Location = new Point(0, 0);
             background.Name = "background";
-            background.Size = new Size(800, 450);
+            background.Size = new Size(898, 450);
             background.TabIndex = 2;
+            // 
+            // inputMatricula
+            // 
+            inputMatricula.Location = new Point(581, 135);
+            inputMatricula.Name = "inputMatricula";
+            inputMatricula.Size = new Size(109, 23);
+            inputMatricula.TabIndex = 50;
+            // 
+            // labelMatricula
+            // 
+            labelMatricula.AutoSize = true;
+            labelMatricula.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMatricula.Location = new Point(604, 115);
+            labelMatricula.Name = "labelMatricula";
+            labelMatricula.Size = new Size(61, 18);
+            labelMatricula.TabIndex = 49;
+            labelMatricula.Tag = "";
+            labelMatricula.Text = "Matricula";
+            // 
+            // inputMotorista
+            // 
+            inputMotorista.Location = new Point(737, 188);
+            inputMotorista.Name = "inputMotorista";
+            inputMotorista.Size = new Size(149, 23);
+            inputMotorista.TabIndex = 48;
+            inputMotorista.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // labelValidade
+            // 
+            labelValidade.AutoSize = true;
+            labelValidade.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelValidade.Location = new Point(784, 215);
+            labelValidade.Name = "labelValidade";
+            labelValidade.Size = new Size(56, 18);
+            labelValidade.TabIndex = 47;
+            labelValidade.Tag = "";
+            labelValidade.Text = "Validade";
+            // 
+            // dateTimePickerValidade
+            // 
+            dateTimePickerValidade.Location = new Point(737, 230);
+            dateTimePickerValidade.Name = "dateTimePickerValidade";
+            dateTimePickerValidade.Size = new Size(149, 23);
+            dateTimePickerValidade.TabIndex = 46;
+            // 
+            // inputObservacao
+            // 
+            inputObservacao.Location = new Point(534, 183);
+            inputObservacao.Name = "inputObservacao";
+            inputObservacao.Size = new Size(196, 23);
+            inputObservacao.TabIndex = 45;
+            // 
+            // labelObservacao
+            // 
+            labelObservacao.AutoSize = true;
+            labelObservacao.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelObservacao.Location = new Point(581, 167);
+            labelObservacao.Name = "labelObservacao";
+            labelObservacao.Size = new Size(71, 18);
+            labelObservacao.TabIndex = 44;
+            labelObservacao.Tag = "";
+            labelObservacao.Text = "Observação";
+            // 
+            // radioButtonGrupoEntregador
+            // 
+            radioButtonGrupoEntregador.AutoSize = true;
+            radioButtonGrupoEntregador.Location = new Point(761, 139);
+            radioButtonGrupoEntregador.Name = "radioButtonGrupoEntregador";
+            radioButtonGrupoEntregador.Size = new Size(83, 19);
+            radioButtonGrupoEntregador.TabIndex = 43;
+            radioButtonGrupoEntregador.TabStop = true;
+            radioButtonGrupoEntregador.Text = "Entregador";
+            radioButtonGrupoEntregador.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonGrupoAtendente
+            // 
+            radioButtonGrupoAtendente.AutoSize = true;
+            radioButtonGrupoAtendente.Location = new Point(760, 114);
+            radioButtonGrupoAtendente.Name = "radioButtonGrupoAtendente";
+            radioButtonGrupoAtendente.Size = new Size(80, 19);
+            radioButtonGrupoAtendente.TabIndex = 42;
+            radioButtonGrupoAtendente.TabStop = true;
+            radioButtonGrupoAtendente.Text = "Atendente";
+            radioButtonGrupoAtendente.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonGrupoAdmin
+            // 
+            radioButtonGrupoAdmin.AutoSize = true;
+            radioButtonGrupoAdmin.Location = new Point(761, 89);
+            radioButtonGrupoAdmin.Name = "radioButtonGrupoAdmin";
+            radioButtonGrupoAdmin.Size = new Size(61, 19);
+            radioButtonGrupoAdmin.TabIndex = 41;
+            radioButtonGrupoAdmin.TabStop = true;
+            radioButtonGrupoAdmin.Text = "Admin";
+            radioButtonGrupoAdmin.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDados
+            // 
+            dataGridViewDados.BackgroundColor = Color.DarkSeaGreen;
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.GridColor = Color.IndianRed;
+            dataGridViewDados.Location = new Point(168, 326);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(475, 111);
+            dataGridViewDados.TabIndex = 39;
+            dataGridViewDados.CellFormatting += DataGridViewDados_CellFormatting;
             // 
             // menu1
             // 
@@ -129,17 +255,19 @@
             inputCep.Name = "inputCep";
             inputCep.Size = new Size(118, 23);
             inputCep.TabIndex = 4;
+            inputCep.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // btnCadastrar
             // 
             btnCadastrar.BackColor = Color.DarkSeaGreen;
             btnCadastrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCadastrar.Location = new Point(581, 388);
+            btnCadastrar.Location = new Point(666, 401);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(194, 36);
             btnCadastrar.TabIndex = 15;
             btnCadastrar.Text = "Cadastrar ";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             btnCadastrar.KeyUp += btnCadastrar_KeyUp;
             // 
             // inputPais
@@ -149,7 +277,7 @@
             inputPais.BackColor = Color.RosyBrown;
             inputPais.FormattingEnabled = true;
             inputPais.Items.AddRange(new object[] { "Administrador", "Atendente", "Entregador" });
-            inputPais.Location = new Point(409, 292);
+            inputPais.Location = new Point(447, 292);
             inputPais.Name = "inputPais";
             inputPais.Size = new Size(100, 23);
             inputPais.TabIndex = 11;
@@ -164,7 +292,7 @@
             inputUf.Items.AddRange(new object[] { "Administrador", "Atendente", "Entregador" });
             inputUf.Location = new Point(325, 292);
             inputUf.Name = "inputUf";
-            inputUf.Size = new Size(64, 23);
+            inputUf.Size = new Size(116, 23);
             inputUf.TabIndex = 10;
             inputUf.Text = "SC";
             // 
@@ -179,7 +307,7 @@
             // 
             inputBairro.Location = new Point(390, 233);
             inputBairro.Name = "inputBairro";
-            inputBairro.Size = new Size(129, 23);
+            inputBairro.Size = new Size(191, 23);
             inputBairro.TabIndex = 8;
             // 
             // inputComplemento
@@ -207,7 +335,7 @@
             // 
             labelPais.AutoSize = true;
             labelPais.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPais.Location = new Point(447, 271);
+            labelPais.Location = new Point(480, 271);
             labelPais.Name = "labelPais";
             labelPais.Size = new Size(29, 18);
             labelPais.TabIndex = 27;
@@ -218,7 +346,7 @@
             // 
             labelUf.AutoSize = true;
             labelUf.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelUf.Location = new Point(351, 271);
+            labelUf.Location = new Point(361, 271);
             labelUf.Name = "labelUf";
             labelUf.Size = new Size(23, 18);
             labelUf.TabIndex = 26;
@@ -240,7 +368,7 @@
             // 
             labelBairro.AutoSize = true;
             labelBairro.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelBairro.Location = new Point(447, 212);
+            labelBairro.Location = new Point(458, 215);
             labelBairro.Name = "labelBairro";
             labelBairro.Size = new Size(42, 18);
             labelBairro.TabIndex = 24;
@@ -291,18 +419,11 @@
             labelCep.Tag = "";
             labelCep.Text = "CEP";
             // 
-            // inputMotorista
-            // 
-            inputMotorista.Location = new Point(581, 147);
-            inputMotorista.Name = "inputMotorista";
-            inputMotorista.Size = new Size(149, 23);
-            inputMotorista.TabIndex = 3;
-            // 
             // labelMotorista
             // 
             labelMotorista.AutoSize = true;
             labelMotorista.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelMotorista.Location = new Point(581, 126);
+            labelMotorista.Location = new Point(737, 167);
             labelMotorista.Name = "labelMotorista";
             labelMotorista.Size = new Size(129, 18);
             labelMotorista.TabIndex = 18;
@@ -311,14 +432,14 @@
             // 
             // inputSenha
             // 
-            inputSenha.Location = new Point(581, 327);
+            inputSenha.Location = new Point(666, 359);
             inputSenha.Name = "inputSenha";
             inputSenha.Size = new Size(181, 23);
             inputSenha.TabIndex = 14;
             // 
             // inputEmail
             // 
-            inputEmail.Location = new Point(581, 280);
+            inputEmail.Location = new Point(666, 312);
             inputEmail.Name = "inputEmail";
             inputEmail.Size = new Size(181, 23);
             inputEmail.TabIndex = 13;
@@ -327,7 +448,7 @@
             // 
             labelSenha.AutoSize = true;
             labelSenha.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelSenha.Location = new Point(644, 306);
+            labelSenha.Location = new Point(729, 338);
             labelSenha.Name = "labelSenha";
             labelSenha.Size = new Size(41, 18);
             labelSenha.TabIndex = 15;
@@ -338,7 +459,7 @@
             // 
             labelEmail.AutoSize = true;
             labelEmail.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelEmail.Location = new Point(644, 243);
+            labelEmail.Location = new Point(729, 275);
             labelEmail.Name = "labelEmail";
             labelEmail.Size = new Size(43, 18);
             labelEmail.TabIndex = 14;
@@ -362,14 +483,16 @@
             inputTelefone.Name = "inputTelefone";
             inputTelefone.Size = new Size(163, 23);
             inputTelefone.TabIndex = 2;
+            inputTelefone.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // inputCpf
             // 
             inputCpf.Location = new Point(433, 89);
-            inputCpf.Mask = "000,000,000-00";
+            inputCpf.Mask = "000.000.000-00";
             inputCpf.Name = "inputCpf";
             inputCpf.Size = new Size(128, 23);
             inputCpf.TabIndex = 1;
+            inputCpf.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             // 
             // inputNome
             // 
@@ -391,25 +514,12 @@
             // 
             labelGrupo.AutoSize = true;
             labelGrupo.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelGrupo.Location = new Point(633, 185);
+            labelGrupo.Location = new Point(805, 68);
             labelGrupo.Name = "labelGrupo";
             labelGrupo.Size = new Size(42, 18);
             labelGrupo.TabIndex = 8;
             labelGrupo.Tag = "";
             labelGrupo.Text = "Grupo";
-            // 
-            // inputGrupo
-            // 
-            inputGrupo.AccessibleRole = AccessibleRole.Grip;
-            inputGrupo.AllowDrop = true;
-            inputGrupo.BackColor = Color.RosyBrown;
-            inputGrupo.FormattingEnabled = true;
-            inputGrupo.Items.AddRange(new object[] { "Administrador", "Atendente", "Entregador" });
-            inputGrupo.Location = new Point(609, 206);
-            inputGrupo.Name = "inputGrupo";
-            inputGrupo.Size = new Size(99, 23);
-            inputGrupo.TabIndex = 12;
-            inputGrupo.Text = "Administrador";
             // 
             // labelTelefone
             // 
@@ -468,7 +578,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(898, 450);
             Controls.Add(background);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -478,6 +588,7 @@
             Text = "Funcionarios";
             background.ResumeLayout(false);
             background.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             ResumeLayout(false);
         }
 
@@ -487,7 +598,6 @@
         private Label labelCpf;
         private Label labelId;
         private Label labelGrupo;
-        private ComboBox inputGrupo;
         private Label labelTelefone;
         private Label labelNome;
         private Label labelEmail;
@@ -516,8 +626,18 @@
         private Label labelNumero;
         private Label labelLogradouro;
         private Label labelCep;
-        private TextBox inputMotorista;
         private Label tituloEndereco;
         private Menu menu1;
+        private DataGridView dataGridViewDados;
+        private RadioButton radioButtonGrupoAdmin;
+        private RadioButton radioButtonGrupoAtendente;
+        private DateTimePicker dateTimePickerValidade;
+        private TextBox inputObservacao;
+        private Label labelObservacao;
+        private RadioButton radioButtonGrupoEntregador;
+        private Label labelValidade;
+        private TextBox inputMatricula;
+        private Label labelMatricula;
+        private MaskedTextBox inputMotorista;
     }
 }

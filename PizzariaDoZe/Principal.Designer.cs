@@ -32,16 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(janelaPrincipal));
             menu1 = new Menu();
             background = new Panel();
-            labelAcoes = new Label();
-            labelTelefone = new Label();
-            labelCpf = new Label();
-            labelNome = new Label();
-            clienteResultado = new Panel();
-            btnRemover = new Button();
-            btnEditar = new Button();
-            telefoneResultado = new Label();
-            cpfResultado = new Label();
-            nomeResultado = new Label();
+            dataGridViewDados = new DataGridView();
             btnBuscar = new Button();
             inputPesquisa = new TextBox();
             tituloPrincipal = new Label();
@@ -63,7 +54,7 @@
             encerrarToolStripMenuItem = new ToolStripMenuItem();
             sobreToolStripMenuItem = new ToolStripMenuItem();
             background.SuspendLayout();
-            clienteResultado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             contextMenuStripPrincipal.SuspendLayout();
             contextMenuStripSystemTray.SuspendLayout();
             SuspendLayout();
@@ -79,11 +70,7 @@
             // background
             // 
             background.BackColor = Color.Honeydew;
-            background.Controls.Add(labelAcoes);
-            background.Controls.Add(labelTelefone);
-            background.Controls.Add(labelCpf);
-            background.Controls.Add(labelNome);
-            background.Controls.Add(clienteResultado);
+            background.Controls.Add(dataGridViewDados);
             background.Controls.Add(btnBuscar);
             background.Controls.Add(inputPesquisa);
             background.Controls.Add(tituloPrincipal);
@@ -92,105 +79,17 @@
             background.Size = new Size(645, 446);
             background.TabIndex = 1;
             // 
-            // labelAcoes
+            // dataGridViewDados
             // 
-            labelAcoes.AutoSize = true;
-            labelAcoes.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelAcoes.Location = new Point(503, 97);
-            labelAcoes.Name = "labelAcoes";
-            labelAcoes.Size = new Size(40, 15);
-            labelAcoes.TabIndex = 9;
-            labelAcoes.Text = "Ações";
-            // 
-            // labelTelefone
-            // 
-            labelTelefone.AutoSize = true;
-            labelTelefone.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelTelefone.Location = new Point(331, 97);
-            labelTelefone.Name = "labelTelefone";
-            labelTelefone.Size = new Size(56, 15);
-            labelTelefone.TabIndex = 8;
-            labelTelefone.Text = "Telefone";
-            // 
-            // labelCpf
-            // 
-            labelCpf.AutoSize = true;
-            labelCpf.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCpf.Location = new Point(202, 99);
-            labelCpf.Name = "labelCpf";
-            labelCpf.Size = new Size(27, 15);
-            labelCpf.TabIndex = 7;
-            labelCpf.Text = "CPF";
-            // 
-            // labelNome
-            // 
-            labelNome.AutoSize = true;
-            labelNome.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelNome.Location = new Point(58, 99);
-            labelNome.Name = "labelNome";
-            labelNome.Size = new Size(41, 15);
-            labelNome.TabIndex = 3;
-            labelNome.Text = "Nome";
-            // 
-            // clienteResultado
-            // 
-            clienteResultado.BackColor = SystemColors.ButtonHighlight;
-            clienteResultado.Controls.Add(btnRemover);
-            clienteResultado.Controls.Add(btnEditar);
-            clienteResultado.Controls.Add(telefoneResultado);
-            clienteResultado.Controls.Add(cpfResultado);
-            clienteResultado.Controls.Add(nomeResultado);
-            clienteResultado.Location = new Point(40, 117);
-            clienteResultado.Name = "clienteResultado";
-            clienteResultado.Size = new Size(580, 40);
-            clienteResultado.TabIndex = 6;
-            // 
-            // btnRemover
-            // 
-            btnRemover.BackColor = Color.IndianRed;
-            btnRemover.Location = new Point(498, 9);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(65, 24);
-            btnRemover.TabIndex = 4;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.DarkSeaGreen;
-            btnEditar.Location = new Point(420, 9);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(65, 24);
-            btnEditar.TabIndex = 3;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // telefoneResultado
-            // 
-            telefoneResultado.AutoSize = true;
-            telefoneResultado.Location = new Point(271, 14);
-            telefoneResultado.Name = "telefoneResultado";
-            telefoneResultado.Size = new Size(89, 15);
-            telefoneResultado.TabIndex = 2;
-            telefoneResultado.Text = "(00) 00000-0000";
-            // 
-            // cpfResultado
-            // 
-            cpfResultado.AutoSize = true;
-            cpfResultado.Location = new Point(137, 14);
-            cpfResultado.Name = "cpfResultado";
-            cpfResultado.Size = new Size(84, 15);
-            cpfResultado.TabIndex = 1;
-            cpfResultado.Text = "000.000.000-00";
-            // 
-            // nomeResultado
-            // 
-            nomeResultado.AutoSize = true;
-            nomeResultado.Location = new Point(18, 14);
-            nomeResultado.Name = "nomeResultado";
-            nomeResultado.Size = new Size(50, 15);
-            nomeResultado.TabIndex = 0;
-            nomeResultado.Text = "Cliente1";
+            dataGridViewDados.BackgroundColor = Color.DarkSeaGreen;
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.GridColor = Color.DarkSeaGreen;
+            dataGridViewDados.Location = new Point(40, 100);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(586, 118);
+            dataGridViewDados.TabIndex = 6;
+            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting;
             // 
             // btnBuscar
             // 
@@ -354,8 +253,7 @@
             Resize += janelaPrincipal_Resize_1;
             background.ResumeLayout(false);
             background.PerformLayout();
-            clienteResultado.ResumeLayout(false);
-            clienteResultado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             contextMenuStripPrincipal.ResumeLayout(false);
             contextMenuStripSystemTray.ResumeLayout(false);
             ResumeLayout(false);
@@ -368,16 +266,6 @@
         private Label tituloPrincipal;
         private Button btnBuscar;
         private TextBox inputPesquisa;
-        private Panel clienteResultado;
-        private Label nomeResultado;
-        private Label cpfResultado;
-        private Label labelAcoes;
-        private Label labelTelefone;
-        private Label labelCpf;
-        private Label labelNome;
-        private Button btnRemover;
-        private Button btnEditar;
-        private Label telefoneResultado;
         private ContextMenuStrip contextMenuStripPrincipal;
         private ToolStripMenuItem inicioToolStripMenuItem;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
@@ -395,5 +283,6 @@
         private ToolStripMenuItem abrirAplicaçãoToolStripMenuItem;
         private ToolStripMenuItem encerrarToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
+        private DataGridView dataGridViewDados;
     }
 }

@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
             menu1 = new Menu();
             background = new Panel();
-            txtValor1 = new txtValor();
+            listBoxTipo = new ListBox();
+            inputValor = new TextBox();
             labelProduto = new Label();
             inputObservacao = new MaskedTextBox();
-            listProdutos = new CheckedListBox();
             inputMl = new ComboBox();
             labelMl = new Label();
             btnCadastrar = new Button();
@@ -45,8 +45,10 @@
             labelValor = new Label();
             labelId = new Label();
             tituloProdutos = new Label();
+            dataGridViewDados = new DataGridView();
             labelObservacao = new Label();
             background.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             SuspendLayout();
             // 
             // labelObservacao
@@ -71,11 +73,12 @@
             // background
             // 
             background.BackColor = Color.Honeydew;
-            background.Controls.Add(txtValor1);
+            background.Controls.Add(dataGridViewDados);
+            background.Controls.Add(listBoxTipo);
+            background.Controls.Add(inputValor);
             background.Controls.Add(labelProduto);
             background.Controls.Add(labelObservacao);
             background.Controls.Add(inputObservacao);
-            background.Controls.Add(listProdutos);
             background.Controls.Add(inputMl);
             background.Controls.Add(labelMl);
             background.Controls.Add(btnCadastrar);
@@ -90,12 +93,23 @@
             background.Size = new Size(649, 457);
             background.TabIndex = 2;
             // 
-            // txtValor1
+            // listBoxTipo
             // 
-            txtValor1.Location = new Point(260, 101);
-            txtValor1.Name = "txtValor1";
-            txtValor1.Size = new Size(118, 23);
-            txtValor1.TabIndex = 1;
+            listBoxTipo.BackColor = Color.DarkSeaGreen;
+            listBoxTipo.FormattingEnabled = true;
+            listBoxTipo.ItemHeight = 15;
+            listBoxTipo.Items.AddRange(new object[] { "Refrigerante", "Cerveja", "Suco", "Água", "Outros" });
+            listBoxTipo.Location = new Point(420, 102);
+            listBoxTipo.Name = "listBoxTipo";
+            listBoxTipo.Size = new Size(200, 214);
+            listBoxTipo.TabIndex = 46;
+            // 
+            // inputValor
+            // 
+            inputValor.Location = new Point(260, 101);
+            inputValor.Name = "inputValor";
+            inputValor.Size = new Size(118, 23);
+            inputValor.TabIndex = 45;
             // 
             // labelProduto
             // 
@@ -114,16 +128,6 @@
             inputObservacao.Name = "inputObservacao";
             inputObservacao.Size = new Size(237, 23);
             inputObservacao.TabIndex = 3;
-            // 
-            // listProdutos
-            // 
-            listProdutos.BackColor = Color.DarkSeaGreen;
-            listProdutos.FormattingEnabled = true;
-            listProdutos.Items.AddRange(new object[] { "Refrigerante", "Cerveja", "Suco", "Água", "Outros" });
-            listProdutos.Location = new Point(391, 101);
-            listProdutos.Name = "listProdutos";
-            listProdutos.Size = new Size(230, 274);
-            listProdutos.TabIndex = 4;
             // 
             // inputMl
             // 
@@ -159,6 +163,7 @@
             btnCadastrar.TabIndex = 37;
             btnCadastrar.Text = "Cadastrar ";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             btnCadastrar.KeyUp += btnCadastrar_KeyUp;
             // 
             // inputNome
@@ -219,6 +224,17 @@
             tituloProdutos.TabIndex = 3;
             tituloProdutos.Text = "Cadastro de Produtos";
             // 
+            // dataGridViewDados
+            // 
+            dataGridViewDados.BackgroundColor = Color.DarkSeaGreen;
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.Location = new Point(45, 256);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(310, 138);
+            dataGridViewDados.TabIndex = 47;
+            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting;
+            // 
             // Produtos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -233,6 +249,7 @@
             Text = "Produtos";
             background.ResumeLayout(false);
             background.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             ResumeLayout(false);
         }
 
@@ -249,9 +266,10 @@
         private Button btnCadastrar;
         private ComboBox inputMl;
         private Label labelMl;
-        private CheckedListBox listProdutos;
         private Label labelProduto;
         private MaskedTextBox inputObservacao;
-        private txtValor txtValor1;
+        private ListBox listBoxTipo;
+        private TextBox inputValor;
+        private DataGridView dataGridViewDados;
     }
 }

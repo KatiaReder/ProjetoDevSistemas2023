@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Valores));
             principalBack = new Panel();
-            txtValor2 = new txtValor();
-            txtValor1 = new txtValor();
-            inputCategoria = new ComboBox();
+            dataGridViewDados = new DataGridView();
+            inputValorBorda = new TextBox();
+            inputValor = new TextBox();
+            listBoxCategoria = new ComboBox();
             labelCategoria = new Label();
             labelBorda = new Label();
-            inputTamanho = new ComboBox();
+            listBoxTamanho = new ComboBox();
             labelTamanho = new Label();
             btnCadastrar = new Button();
             inputId = new TextBox();
@@ -44,17 +45,19 @@
             tituloValores = new Label();
             menu1 = new Menu();
             principalBack.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             SuspendLayout();
             // 
             // principalBack
             // 
             principalBack.BackColor = Color.Honeydew;
-            principalBack.Controls.Add(txtValor2);
-            principalBack.Controls.Add(txtValor1);
-            principalBack.Controls.Add(inputCategoria);
+            principalBack.Controls.Add(dataGridViewDados);
+            principalBack.Controls.Add(inputValorBorda);
+            principalBack.Controls.Add(inputValor);
+            principalBack.Controls.Add(listBoxCategoria);
             principalBack.Controls.Add(labelCategoria);
             principalBack.Controls.Add(labelBorda);
-            principalBack.Controls.Add(inputTamanho);
+            principalBack.Controls.Add(listBoxTamanho);
             principalBack.Controls.Add(labelTamanho);
             principalBack.Controls.Add(btnCadastrar);
             principalBack.Controls.Add(inputId);
@@ -66,32 +69,42 @@
             principalBack.Size = new Size(661, 457);
             principalBack.TabIndex = 3;
             // 
-            // txtValor2
+            // dataGridViewDados
             // 
-            txtValor2.Location = new Point(342, 129);
-            txtValor2.Name = "txtValor2";
-            txtValor2.Size = new Size(224, 23);
-            txtValor2.TabIndex = 1;
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.Location = new Point(56, 299);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(272, 123);
+            dataGridViewDados.TabIndex = 51;
+            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting;
             // 
-            // txtValor1
+            // inputValorBorda
             // 
-            txtValor1.Location = new Point(149, 129);
-            txtValor1.Name = "txtValor1";
-            txtValor1.Size = new Size(166, 23);
-            txtValor1.TabIndex = 0;
+            inputValorBorda.Location = new Point(353, 129);
+            inputValorBorda.Name = "inputValorBorda";
+            inputValorBorda.Size = new Size(186, 23);
+            inputValorBorda.TabIndex = 50;
             // 
-            // inputCategoria
+            // inputValor
             // 
-            inputCategoria.AccessibleRole = AccessibleRole.Grip;
-            inputCategoria.AllowDrop = true;
-            inputCategoria.BackColor = Color.RosyBrown;
-            inputCategoria.FormattingEnabled = true;
-            inputCategoria.Items.AddRange(new object[] { "Tradicional", "Especial" });
-            inputCategoria.Location = new Point(353, 224);
-            inputCategoria.Name = "inputCategoria";
-            inputCategoria.Size = new Size(179, 23);
-            inputCategoria.TabIndex = 3;
-            inputCategoria.Text = "Tradicional";
+            inputValor.Location = new Point(159, 129);
+            inputValor.Name = "inputValor";
+            inputValor.Size = new Size(186, 23);
+            inputValor.TabIndex = 49;
+            // 
+            // listBoxCategoria
+            // 
+            listBoxCategoria.AccessibleRole = AccessibleRole.Grip;
+            listBoxCategoria.AllowDrop = true;
+            listBoxCategoria.BackColor = Color.RosyBrown;
+            listBoxCategoria.FormattingEnabled = true;
+            listBoxCategoria.Items.AddRange(new object[] { "Tradicional", "Especial" });
+            listBoxCategoria.Location = new Point(353, 224);
+            listBoxCategoria.Name = "listBoxCategoria";
+            listBoxCategoria.Size = new Size(179, 23);
+            listBoxCategoria.TabIndex = 3;
+            listBoxCategoria.Text = "Tradicional";
             // 
             // labelCategoria
             // 
@@ -115,18 +128,18 @@
             labelBorda.Tag = "cpfFuncionario";
             labelBorda.Text = "Valor - Adicional Borda";
             // 
-            // inputTamanho
+            // listBoxTamanho
             // 
-            inputTamanho.AccessibleRole = AccessibleRole.Grip;
-            inputTamanho.AllowDrop = true;
-            inputTamanho.BackColor = Color.RosyBrown;
-            inputTamanho.FormattingEnabled = true;
-            inputTamanho.Items.AddRange(new object[] { "Pequena", "Média", "Família", "Grande" });
-            inputTamanho.Location = new Point(86, 224);
-            inputTamanho.Name = "inputTamanho";
-            inputTamanho.Size = new Size(179, 23);
-            inputTamanho.TabIndex = 2;
-            inputTamanho.Text = "Pequena";
+            listBoxTamanho.AccessibleRole = AccessibleRole.Grip;
+            listBoxTamanho.AllowDrop = true;
+            listBoxTamanho.BackColor = Color.RosyBrown;
+            listBoxTamanho.FormattingEnabled = true;
+            listBoxTamanho.Items.AddRange(new object[] { "Pequena", "Média", "Família", "Grande" });
+            listBoxTamanho.Location = new Point(86, 224);
+            listBoxTamanho.Name = "listBoxTamanho";
+            listBoxTamanho.Size = new Size(179, 23);
+            listBoxTamanho.TabIndex = 2;
+            listBoxTamanho.Text = "Pequena";
             // 
             // labelTamanho
             // 
@@ -149,6 +162,7 @@
             btnCadastrar.TabIndex = 37;
             btnCadastrar.Text = "Cadastrar ";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             btnCadastrar.KeyUp += btnCadastrar_KeyUp;
             // 
             // inputId
@@ -213,6 +227,7 @@
             Text = "Valores";
             principalBack.ResumeLayout(false);
             principalBack.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             ResumeLayout(false);
         }
 
@@ -221,7 +236,7 @@
         private Panel principalBack;
         private Label labelCategoria;
         private Label labelBorda;
-        private ComboBox inputTamanho;
+        private ComboBox listBoxTamanho;
         private Label labelTamanho;
         private Button btnCadastrar;
         private TextBox inputId;
@@ -229,8 +244,9 @@
         private Label labelId;
         private Label tituloValores;
         private Menu menu1;
-        private ComboBox inputCategoria;
-        private txtValor txtValor2;
-        private txtValor txtValor1;
+        private ComboBox listBoxCategoria;
+        private TextBox inputValorBorda;
+        private TextBox inputValor;
+        private DataGridView dataGridViewDados;
     }
 }

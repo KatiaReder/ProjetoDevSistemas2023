@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sabores));
             background = new Panel();
+            dataGridViewDados = new DataGridView();
+            checkedListBoxIngredientes = new CheckedListBox();
             menu1 = new Menu();
-            fotoSaborPizza = new PictureBox();
-            inputTipos = new ComboBox();
+            pictureBoxImagem = new PictureBox();
+            listBoxTipo = new ComboBox();
             labelTipos = new Label();
-            inputCategorias = new ComboBox();
-            listIngredientesCadastrados = new CheckedListBox();
+            listBoxCategoria = new ComboBox();
             labelCategorias = new Label();
             labelIngredientesSabores = new Label();
             btnCadastrar = new Button();
@@ -44,19 +45,23 @@
             labelNome = new Label();
             tituloSabores = new Label();
             labelId = new Label();
+            panel1 = new Panel();
             background.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)fotoSaborPizza).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxImagem).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // background
             // 
             background.BackColor = Color.Honeydew;
+            background.Controls.Add(panel1);
+            background.Controls.Add(dataGridViewDados);
+            background.Controls.Add(checkedListBoxIngredientes);
             background.Controls.Add(menu1);
-            background.Controls.Add(fotoSaborPizza);
-            background.Controls.Add(inputTipos);
+            background.Controls.Add(listBoxTipo);
             background.Controls.Add(labelTipos);
-            background.Controls.Add(inputCategorias);
-            background.Controls.Add(listIngredientesCadastrados);
+            background.Controls.Add(listBoxCategoria);
             background.Controls.Add(labelCategorias);
             background.Controls.Add(labelIngredientesSabores);
             background.Controls.Add(btnCadastrar);
@@ -71,6 +76,25 @@
             background.Size = new Size(800, 450);
             background.TabIndex = 6;
             // 
+            // dataGridViewDados
+            // 
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.Location = new Point(168, 330);
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.Size = new Size(347, 108);
+            dataGridViewDados.TabIndex = 47;
+            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting;
+            // 
+            // checkedListBoxIngredientes
+            // 
+            checkedListBoxIngredientes.BackColor = Color.DarkSeaGreen;
+            checkedListBoxIngredientes.FormattingEnabled = true;
+            checkedListBoxIngredientes.Location = new Point(555, 90);
+            checkedListBoxIngredientes.Name = "checkedListBoxIngredientes";
+            checkedListBoxIngredientes.Size = new Size(217, 220);
+            checkedListBoxIngredientes.TabIndex = 46;
+            // 
             // menu1
             // 
             menu1.BackColor = Color.DarkSeaGreen;
@@ -79,26 +103,26 @@
             menu1.Size = new Size(142, 459);
             menu1.TabIndex = 45;
             // 
-            // fotoSaborPizza
+            // pictureBoxImagem
             // 
-            fotoSaborPizza.Image = Properties.Resources.pizza;
-            fotoSaborPizza.Location = new Point(193, 192);
-            fotoSaborPizza.Name = "fotoSaborPizza";
-            fotoSaborPizza.Size = new Size(322, 216);
-            fotoSaborPizza.SizeMode = PictureBoxSizeMode.StretchImage;
-            fotoSaborPizza.TabIndex = 44;
-            fotoSaborPizza.TabStop = false;
+            pictureBoxImagem.Location = new Point(50, 1);
+            pictureBoxImagem.Name = "pictureBoxImagem";
+            pictureBoxImagem.Size = new Size(237, 140);
+            pictureBoxImagem.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxImagem.TabIndex = 44;
+            pictureBoxImagem.TabStop = false;
+            pictureBoxImagem.Click += pictureBoxImagem_Click;
             // 
-            // inputTipos
+            // listBoxTipo
             // 
-            inputTipos.BackColor = Color.RosyBrown;
-            inputTipos.FormattingEnabled = true;
-            inputTipos.Items.AddRange(new object[] { "Salgada", "Doce" });
-            inputTipos.Location = new Point(217, 145);
-            inputTipos.Name = "inputTipos";
-            inputTipos.Size = new Size(102, 23);
-            inputTipos.TabIndex = 1;
-            inputTipos.Text = "Salgada";
+            listBoxTipo.BackColor = Color.RosyBrown;
+            listBoxTipo.FormattingEnabled = true;
+            listBoxTipo.Items.AddRange(new object[] { "Salgada", "Doce" });
+            listBoxTipo.Location = new Point(217, 145);
+            listBoxTipo.Name = "listBoxTipo";
+            listBoxTipo.Size = new Size(102, 23);
+            listBoxTipo.TabIndex = 1;
+            listBoxTipo.Text = "Salgada";
             // 
             // labelTipos
             // 
@@ -111,27 +135,16 @@
             labelTipos.Tag = "";
             labelTipos.Text = "Tipos";
             // 
-            // inputCategorias
+            // listBoxCategoria
             // 
-            inputCategorias.BackColor = Color.RosyBrown;
-            inputCategorias.FormattingEnabled = true;
-            inputCategorias.Items.AddRange(new object[] { "Tradicional", "Especial" });
-            inputCategorias.Location = new Point(371, 145);
-            inputCategorias.Name = "inputCategorias";
-            inputCategorias.Size = new Size(116, 23);
-            inputCategorias.TabIndex = 2;
-            inputCategorias.Text = "Tradicional";
-            // 
-            // listIngredientesCadastrados
-            // 
-            listIngredientesCadastrados.BackColor = Color.DarkSeaGreen;
-            listIngredientesCadastrados.FormattingEnabled = true;
-            listIngredientesCadastrados.Items.AddRange(new object[] { "Queijo", "Orégano", "Molho de Tomate" });
-            listIngredientesCadastrados.Location = new Point(542, 90);
-            listIngredientesCadastrados.Name = "listIngredientesCadastrados";
-            listIngredientesCadastrados.Size = new Size(230, 256);
-            listIngredientesCadastrados.TabIndex = 3;
-            listIngredientesCadastrados.TabStop = false;
+            listBoxCategoria.BackColor = Color.RosyBrown;
+            listBoxCategoria.FormattingEnabled = true;
+            listBoxCategoria.Items.AddRange(new object[] { "Tradicional", "Especial" });
+            listBoxCategoria.Location = new Point(371, 145);
+            listBoxCategoria.Name = "listBoxCategoria";
+            listBoxCategoria.Size = new Size(116, 23);
+            listBoxCategoria.TabIndex = 2;
+            listBoxCategoria.Text = "Tradicional";
             // 
             // labelCategorias
             // 
@@ -164,6 +177,7 @@
             btnCadastrar.TabIndex = 36;
             btnCadastrar.Text = "Cadastrar ";
             btnCadastrar.UseVisualStyleBackColor = false;
+            btnCadastrar.Click += btnCadastrar_Click;
             btnCadastrar.KeyUp += btnCadastrar_KeyUp;
             // 
             // inputNome
@@ -213,6 +227,15 @@
             labelId.TabIndex = 0;
             labelId.Text = "Id";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.DarkSeaGreen;
+            panel1.Controls.Add(pictureBoxImagem);
+            panel1.Location = new Point(167, 183);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(348, 141);
+            panel1.TabIndex = 48;
+            // 
             // Sabores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -226,18 +249,19 @@
             Text = "Sabores";
             background.ResumeLayout(false);
             background.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)fotoSaborPizza).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxImagem).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel background;
-        private PictureBox fotoSaborPizza;
-        private ComboBox inputTipos;
+        private PictureBox pictureBoxImagem;
+        private ComboBox listBoxTipo;
         private Label labelTipos;
-        private ComboBox inputCategorias;
-        private CheckedListBox listIngredientesCadastrados;
+        private ComboBox listBoxCategoria;
         private Label labelCategorias;
         private Label labelIngredientesSabores;
         private Button btnCadastrar;
@@ -247,5 +271,8 @@
         private Label tituloSabores;
         private Label labelId;
         private Menu menu1;
+        private CheckedListBox checkedListBoxIngredientes;
+        private DataGridView dataGridViewDados;
+        private Panel panel1;
     }
 }

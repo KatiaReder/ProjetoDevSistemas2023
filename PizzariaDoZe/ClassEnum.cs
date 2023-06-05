@@ -15,6 +15,46 @@ namespace PizzariaDoZe
             [Description("Entregador")]
             Entrega = 3,
         }
+        public enum EnumSaborCategoria
+        {
+            [Description("Tradicional")]
+            Tradicional = 'T',
+            [Description("Especial")]
+            Especial = 'E'
+        }
+        public enum EnumSaborTipo
+        {
+            [Description("Doce")]
+            Doce = 'D',
+            [Description("Salgada")]
+            Salgada = 'S'
+        }
+
+        public enum EnumValorTamanho
+        {
+            [Description("Pequena")]
+            Pequena = 'P',
+            [Description("Média")]
+            Media = 'M',
+            [Description("Grande")]
+            Grande = 'G',
+            [Description("Família")]
+            Familia = 'F'
+        }
+
+        public enum EnumProdutoTipo
+        {
+            [Description("Refrigerante")]
+            Refrigerante = 'R',
+            [Description("Cerveja")]
+            Cerveja = 'C',
+            [Description("Suco")]
+            Suco = 'S',
+            [Description("Água")]
+            Agua = 'A',
+            [Description("Outros")]
+            Outros = 'O'
+        }
         public static string GetDescription(this Enum GenericEnum)
         {
             Type genericEnumType = GenericEnum.GetType();

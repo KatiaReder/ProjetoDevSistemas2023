@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(janelaPrincipal));
             menu1 = new Menu();
             background = new Panel();
-            dataGridViewDados = new DataGridView();
-            btnBuscar = new Button();
-            inputPesquisa = new TextBox();
             tituloPrincipal = new Label();
             contextMenuStripPrincipal = new ContextMenuStrip(components);
             inicioToolStripMenuItem = new ToolStripMenuItem();
@@ -54,7 +51,6 @@
             encerrarToolStripMenuItem = new ToolStripMenuItem();
             sobreToolStripMenuItem = new ToolStripMenuItem();
             background.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             contextMenuStripPrincipal.SuspendLayout();
             contextMenuStripSystemTray.SuspendLayout();
             SuspendLayout();
@@ -70,55 +66,21 @@
             // background
             // 
             background.BackColor = Color.Honeydew;
-            background.Controls.Add(dataGridViewDados);
-            background.Controls.Add(btnBuscar);
-            background.Controls.Add(inputPesquisa);
             background.Controls.Add(tituloPrincipal);
             background.Location = new Point(157, 3);
             background.Name = "background";
             background.Size = new Size(645, 446);
             background.TabIndex = 1;
             // 
-            // dataGridViewDados
-            // 
-            dataGridViewDados.BackgroundColor = Color.DarkSeaGreen;
-            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewDados.GridColor = Color.DarkSeaGreen;
-            dataGridViewDados.Location = new Point(40, 100);
-            dataGridViewDados.Name = "dataGridViewDados";
-            dataGridViewDados.RowTemplate.Height = 25;
-            dataGridViewDados.Size = new Size(586, 118);
-            dataGridViewDados.TabIndex = 6;
-            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.DarkSeaGreen;
-            btnBuscar.Location = new Point(569, 59);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(57, 23);
-            btnBuscar.TabIndex = 5;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // inputPesquisa
-            // 
-            inputPesquisa.BorderStyle = BorderStyle.FixedSingle;
-            inputPesquisa.ForeColor = SystemColors.ActiveCaptionText;
-            inputPesquisa.Location = new Point(40, 59);
-            inputPesquisa.Name = "inputPesquisa";
-            inputPesquisa.Size = new Size(525, 23);
-            inputPesquisa.TabIndex = 0;
-            // 
             // tituloPrincipal
             // 
             tituloPrincipal.AutoSize = true;
             tituloPrincipal.Font = new Font("Trebuchet MS", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloPrincipal.Location = new Point(169, 19);
+            tituloPrincipal.Location = new Point(240, 185);
             tituloPrincipal.Name = "tituloPrincipal";
-            tituloPrincipal.Size = new Size(301, 37);
+            tituloPrincipal.Size = new Size(163, 37);
             tituloPrincipal.TabIndex = 3;
-            tituloPrincipal.Text = "Listagem de Clientes";
+            tituloPrincipal.Text = "Bem-Vindo";
             // 
             // contextMenuStripPrincipal
             // 
@@ -253,7 +215,6 @@
             Resize += janelaPrincipal_Resize_1;
             background.ResumeLayout(false);
             background.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             contextMenuStripPrincipal.ResumeLayout(false);
             contextMenuStripSystemTray.ResumeLayout(false);
             ResumeLayout(false);
@@ -264,8 +225,6 @@
         private Menu menu1;
         private Panel background;
         private Label tituloPrincipal;
-        private Button btnBuscar;
-        private TextBox inputPesquisa;
         private ContextMenuStrip contextMenuStripPrincipal;
         private ToolStripMenuItem inicioToolStripMenuItem;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
@@ -283,6 +242,5 @@
         private ToolStripMenuItem abrirAplicaçãoToolStripMenuItem;
         private ToolStripMenuItem encerrarToolStripMenuItem;
         private ToolStripMenuItem sobreToolStripMenuItem;
-        private DataGridView dataGridViewDados;
     }
 }

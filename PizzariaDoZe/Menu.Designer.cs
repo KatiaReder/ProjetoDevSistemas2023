@@ -34,18 +34,19 @@
             cadastrarClientes = new Button();
             cadastrarIngredientes = new Button();
             cadastrarSabores = new Button();
-            oficialPizzaria = new Label();
             cadastrarProdutos = new Button();
             cadastrarValores = new Button();
             btnConfig = new Button();
             cadastrarEndereco = new Button();
+            buscarCliente = new Button();
+            cadastrarPedidos = new Button();
             ((System.ComponentModel.ISupportInitialize)logoImg).BeginInit();
             SuspendLayout();
             // 
             // logoImg
             // 
             logoImg.Image = Properties.Resources.pizzaria_tio_zé_logo_1;
-            logoImg.Location = new Point(23, 15);
+            logoImg.Location = new Point(23, 3);
             logoImg.Name = "logoImg";
             logoImg.Size = new Size(101, 83);
             logoImg.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -55,7 +56,7 @@
             // principal
             // 
             principal.BackColor = Color.Transparent;
-            principal.Location = new Point(17, 114);
+            principal.Location = new Point(17, 92);
             principal.Name = "principal";
             principal.Size = new Size(107, 26);
             principal.TabIndex = 0;
@@ -66,7 +67,7 @@
             // 
             // cadastrarFuncionario
             // 
-            cadastrarFuncionario.Location = new Point(17, 146);
+            cadastrarFuncionario.Location = new Point(17, 124);
             cadastrarFuncionario.Name = "cadastrarFuncionario";
             cadastrarFuncionario.Size = new Size(107, 26);
             cadastrarFuncionario.TabIndex = 1;
@@ -77,7 +78,7 @@
             // 
             // cadastrarClientes
             // 
-            cadastrarClientes.Location = new Point(17, 178);
+            cadastrarClientes.Location = new Point(17, 156);
             cadastrarClientes.Name = "cadastrarClientes";
             cadastrarClientes.Size = new Size(107, 26);
             cadastrarClientes.TabIndex = 2;
@@ -88,7 +89,7 @@
             // 
             // cadastrarIngredientes
             // 
-            cadastrarIngredientes.Location = new Point(17, 210);
+            cadastrarIngredientes.Location = new Point(17, 188);
             cadastrarIngredientes.Name = "cadastrarIngredientes";
             cadastrarIngredientes.Size = new Size(107, 26);
             cadastrarIngredientes.TabIndex = 3;
@@ -99,7 +100,7 @@
             // 
             // cadastrarSabores
             // 
-            cadastrarSabores.Location = new Point(17, 242);
+            cadastrarSabores.Location = new Point(17, 220);
             cadastrarSabores.Name = "cadastrarSabores";
             cadastrarSabores.Size = new Size(107, 26);
             cadastrarSabores.TabIndex = 4;
@@ -108,21 +109,9 @@
             cadastrarSabores.Click += cadastrarSabores_Click;
             cadastrarSabores.KeyUp += cadastrarSabores_KeyUp;
             // 
-            // oficialPizzaria
-            // 
-            oficialPizzaria.AutoSize = true;
-            oficialPizzaria.FlatStyle = FlatStyle.Popup;
-            oficialPizzaria.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            oficialPizzaria.ForeColor = Color.DarkGreen;
-            oficialPizzaria.Location = new Point(17, 421);
-            oficialPizzaria.Name = "oficialPizzaria";
-            oficialPizzaria.Size = new Size(113, 15);
-            oficialPizzaria.TabIndex = 8;
-            oficialPizzaria.Text = "Pizza do Zé ® 2023";
-            // 
             // cadastrarProdutos
             // 
-            cadastrarProdutos.Location = new Point(17, 274);
+            cadastrarProdutos.Location = new Point(17, 252);
             cadastrarProdutos.Name = "cadastrarProdutos";
             cadastrarProdutos.Size = new Size(107, 26);
             cadastrarProdutos.TabIndex = 5;
@@ -134,7 +123,7 @@
             // 
             // cadastrarValores
             // 
-            cadastrarValores.Location = new Point(17, 306);
+            cadastrarValores.Location = new Point(17, 284);
             cadastrarValores.Name = "cadastrarValores";
             cadastrarValores.Size = new Size(107, 26);
             cadastrarValores.TabIndex = 6;
@@ -145,7 +134,7 @@
             // 
             // btnConfig
             // 
-            btnConfig.Location = new Point(17, 392);
+            btnConfig.Location = new Point(17, 412);
             btnConfig.Name = "btnConfig";
             btnConfig.Size = new Size(107, 26);
             btnConfig.TabIndex = 7;
@@ -156,7 +145,7 @@
             // 
             // cadastrarEndereco
             // 
-            cadastrarEndereco.Location = new Point(17, 338);
+            cadastrarEndereco.Location = new Point(17, 316);
             cadastrarEndereco.Name = "cadastrarEndereco";
             cadastrarEndereco.Size = new Size(107, 26);
             cadastrarEndereco.TabIndex = 9;
@@ -164,16 +153,37 @@
             cadastrarEndereco.UseVisualStyleBackColor = true;
             cadastrarEndereco.Click += cadastrarEndereco_Click;
             // 
+            // buscarCliente
+            // 
+            buscarCliente.Location = new Point(17, 348);
+            buscarCliente.Name = "buscarCliente";
+            buscarCliente.Size = new Size(107, 26);
+            buscarCliente.TabIndex = 10;
+            buscarCliente.Text = "Buscar Cliente";
+            buscarCliente.UseVisualStyleBackColor = true;
+            buscarCliente.Click += buscarCliente_Click;
+            // 
+            // cadastrarPedidos
+            // 
+            cadastrarPedidos.Location = new Point(17, 380);
+            cadastrarPedidos.Name = "cadastrarPedidos";
+            cadastrarPedidos.Size = new Size(107, 26);
+            cadastrarPedidos.TabIndex = 11;
+            cadastrarPedidos.Text = "Pedidos";
+            cadastrarPedidos.UseVisualStyleBackColor = true;
+            cadastrarPedidos.Click += cadastrarPedidos_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkSeaGreen;
+            Controls.Add(cadastrarPedidos);
+            Controls.Add(buscarCliente);
             Controls.Add(cadastrarEndereco);
             Controls.Add(btnConfig);
             Controls.Add(cadastrarValores);
             Controls.Add(cadastrarProdutos);
-            Controls.Add(oficialPizzaria);
             Controls.Add(logoImg);
             Controls.Add(cadastrarSabores);
             Controls.Add(principal);
@@ -184,7 +194,6 @@
             Size = new Size(150, 458);
             ((System.ComponentModel.ISupportInitialize)logoImg).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -195,10 +204,11 @@
         private Button cadastrarClientes;
         private Button cadastrarIngredientes;
         private Button cadastrarSabores;
-        private Label oficialPizzaria;
         private Button cadastrarProdutos;
         private Button cadastrarValores;
         private Button btnConfig;
         private Button cadastrarEndereco;
+        private Button buscarCliente;
+        private Button cadastrarPedidos;
     }
 }

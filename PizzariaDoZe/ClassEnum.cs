@@ -29,6 +29,14 @@ namespace PizzariaDoZe
             [Description("Salgada")]
             Salgada = 'S'
         }
+        public enum EnumEntrega 
+        {
+            [Description("Retirar")]
+            Retirar = 'R',
+            [Description("Entregar")]
+            Entregar = 'E'
+        }
+
 
         public enum EnumValorTamanho
         {

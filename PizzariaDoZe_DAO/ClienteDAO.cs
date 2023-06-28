@@ -77,6 +77,36 @@ VALUES(@nome, @cpf, @telefone, @email, @endereco_id, @numero, @complemento);" + 
             return Convert.ToInt32(IdGerado);
         }
 
+        public void Editar(Cliente cliente)
+        {
+            using var conexao = factory.CreateConnection(); //Cria conexão
+            conexao!.ConnectionString = StringConexao; //Atribui a string de conexão
+            using var comando = factory.CreateCommand(); //Cria comando
+            comando!.Connection = conexao; //Atribui conexão
+                                           //Adiciona parâmetro (@campo e valor)
+            var id = comando.CreateParameter(); id.ParameterName = "@id"; id.Value = cliente.Id; comando.Parameters.Add(id);
+            var nome = comando.CreateParameter(); nome.ParameterName = "@nome"; nome.Value = cliente.Nome; comando.Parameters.Add(nome);
+            var cpf = comando.CreateParameter(); cpf.ParameterName = "@cpf"; cpf.Value = cliente.Cpf; comando.Parameters.Add(cpf);
+            var telefone = comando.CreateParameter(); telefone.ParameterName = "@telefone"; telefone.Value = cliente.Telefone; comando.Parameters.Add(telefone);
+            var email = comando.CreateParameter(); email.ParameterName = "@email"; email.Value = cliente.Email; comando.Parameters.Add(email);
+            var endereco_id = comando.CreateParameter(); endereco_id.ParameterName = "@endereco_id"; endereco_id.Value = cliente.EnderecoId; comando.Parameters.Add(endereco_id);
+            var numero = comando.CreateParameter(); numero.ParameterName = "@numero"; numero.Value = cliente.Numero; comando.Parameters.Add(numero);
+            var complemento = comando.CreateParameter(); complemento.ParameterName = "@complemento"; complemento.Value = cliente.Complemento; comando.Parameters.Add(complemento);
+            conexao.Open();
+            //realiza o UPDATE
+            comando.CommandText = @"UPDATE tb_clientes SET " +
+            "nome_cliente = @nome, " +
+            "cpf = @cpf, " +
+            "telefone = @telefone, " +
+            "email = @email, " +
+            "endereco_id = @endereco_id, " +
+            "numero = @numero, " +
+            "complemento = @complemento " +
+            "WHERE id_cliente = @id;";
+            //executa o comando no banco de dados
+            _ = comando.ExecuteNonQuery();
+        }
+
         public DataTable Buscar(Cliente cliente)
         {
             using var conexao = factory.CreateConnection(); //Cria conexão
@@ -92,6 +122,14 @@ VALUES(@nome, @cpf, @telefone, @email, @endereco_id, @numero, @complemento);" + 
             else if (cliente.Nome.Length > 0)
             {
                 auxSqlFiltro = "WHERE cc.nome_cliente like '%" + cliente.Nome + "%' ";
+            }
+            else if (cliente.Cpf.Length > 0)
+            {
+                auxSqlFiltro = "WHERE cc.cpf like '%" + cliente.Cpf + "%' ";
+            }
+            else if (cliente.Telefone.Length > 0)
+            {
+                auxSqlFiltro = "WHERE cc.telefone like '%" + cliente.Telefone + "%' ";
             }
             conexao.Open();
             comando.CommandText = @" " +
@@ -114,6 +152,26 @@ VALUES(@nome, @cpf, @telefone, @email, @endereco_id, @numero, @complemento);" + 
             linhas.Load(sdr);
             return linhas;
         }
+
+        public void Excluir(Cliente cliente)
+        {
+            using var conexao = factory.CreateConnection(); //Cria conexão
+            conexao!.ConnectionString = StringConexao; //Atribui a string de conexão
+            using var comando = factory.CreateCommand(); //Cria comando
+            comando!.Connection = conexao; //Atribui conexão
+                                           //Adiciona parâmetro (@campo e valor)
+            var id = comando.CreateParameter();
+            id.ParameterName = "@id";
+            id.Value = cliente.Id;
+            comando.Parameters.Add(id);
+            conexao.Open();
+            //realiza o DELETE
+            comando.CommandText = @"DELETE FROM tb_cliente WHERE id_cliente = @id;";
+            //executa o comando no banco de dados
+            _ = comando.ExecuteNonQuery();
+        }
+
+
     }
 
 

@@ -694,7 +694,7 @@ namespace PizzariaDoZe.Properties {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Listagem de Clientes.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Bem-Vindo.
         /// </summary>
         internal static string tituloPrincipal_Text {
             get {

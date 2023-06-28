@@ -24,8 +24,6 @@ namespace PizzariaDoZe
             clienteDAO = new ClienteDAO(provider, strConnection);
             this.KeyDown += new KeyEventHandler(Funcoes.FormEventoKeyDown!);
 
-            AtualizarTela();
-
         }
 
         /// <summary>
@@ -114,60 +112,6 @@ namespace PizzariaDoZe
             Show();
             WindowState = FormWindowState.Normal;
             notifyIconSystemTray.Visible = false;
-        }
-
-        private void AtualizarTela()
-        {
-            //Instância e Preenche o objeto com os dados da view
-            var cliente = new Cliente();
-            try
-            {
-                //chama o método para buscar todos os dados da nossa camada model
-                DataTable linhas = clienteDAO.Buscar(cliente);
-                // seta o datasouce do dataGridView com os dados retornados
-                dataGridViewDados.Columns.Clear();
-                dataGridViewDados.AutoGenerateColumns = true;
-                dataGridViewDados.DataSource = linhas;
-                dataGridViewDados.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void dataGridViewDados_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (e.RowIndex == this.dataGridViewDados.NewRowIndex || e.Value.ToString().Trim().Length == 0)
-            {
-                return;
-            }
-            if (this.dataGridViewDados.Columns[e.ColumnIndex].Name.Equals("Grupo"))
-            {
-                e.Value = ClassEnums.GetDescription((EnumFuncionarioGrupo)int.Parse(e.Value.ToString()));
-            }
-            else if (this.dataGridViewDados.Columns[e.ColumnIndex].Name.Equals("CPF"))
-            {
-                long value = long.Parse(e.Value.ToString().Replace(" ", ""));
-                e.Value = string.Format(@"{0:000\.000\.000\-00}", value);
-            }
-            else if (this.dataGridViewDados.Columns[e.ColumnIndex].Name.Equals("CEP"))
-            {
-                long value = long.Parse(e.Value.ToString().Replace(" ", ""));
-                e.Value = string.Format(@"{0:00\.000\-000}", value);
-            }
-            else if (this.dataGridViewDados.Columns[e.ColumnIndex].Name.Equals("Telefone"))
-            {
-                long value = long.Parse(e.Value.ToString().Replace(" ", ""));
-                e.Value = string.Format(@"{0:(00) 00000\-0000}", value);
-            }
-            else if (this.dataGridViewDados.Columns[e.ColumnIndex].Name.Equals("Valor"))
-            {
-                // formata valor numérico com duas casa decimais
-                double d = double.Parse(e.Value.ToString());
-                e.Value = d.ToString("N2");
-            }
-
         }
     }
 }

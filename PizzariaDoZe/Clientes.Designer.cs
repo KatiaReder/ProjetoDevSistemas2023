@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             background = new Panel();
+            btnExcluir = new Button();
+            dataGridViewDados = new DataGridView();
+            inputEnderecoId = new TextBox();
+            label1 = new Label();
+            btnEditar = new Button();
             menu1 = new Menu();
             inputCep = new MaskedTextBox();
             btnCadastrar = new Button();
@@ -61,11 +66,17 @@
             labelCpf = new Label();
             labelId = new Label();
             background.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).BeginInit();
             SuspendLayout();
             // 
             // background
             // 
             background.BackColor = Color.Honeydew;
+            background.Controls.Add(btnExcluir);
+            background.Controls.Add(dataGridViewDados);
+            background.Controls.Add(inputEnderecoId);
+            background.Controls.Add(label1);
+            background.Controls.Add(btnEditar);
             background.Controls.Add(menu1);
             background.Controls.Add(inputCep);
             background.Controls.Add(btnCadastrar);
@@ -99,8 +110,67 @@
             background.Dock = DockStyle.Fill;
             background.Location = new Point(0, 0);
             background.Name = "background";
-            background.Size = new Size(800, 450);
+            background.Size = new Size(1321, 450);
             background.TabIndex = 3;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.BackColor = Color.RosyBrown;
+            btnExcluir.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExcluir.Location = new Point(892, 402);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(110, 36);
+            btnExcluir.TabIndex = 45;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // dataGridViewDados
+            // 
+            dataGridViewDados.AllowUserToAddRows = false;
+            dataGridViewDados.BackgroundColor = Color.DarkSeaGreen;
+            dataGridViewDados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDados.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dataGridViewDados.Location = new Point(836, 45);
+            dataGridViewDados.MultiSelect = false;
+            dataGridViewDados.Name = "dataGridViewDados";
+            dataGridViewDados.RowTemplate.Height = 25;
+            dataGridViewDados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewDados.Size = new Size(435, 333);
+            dataGridViewDados.TabIndex = 44;
+            dataGridViewDados.CellFormatting += dataGridViewDados_CellFormatting_1;
+            dataGridViewDados.MouseDoubleClick += dataGridViewDados_MouseDoubleClick;
+            // 
+            // inputEnderecoId
+            // 
+            inputEnderecoId.Location = new Point(149, 191);
+            inputEnderecoId.Name = "inputEnderecoId";
+            inputEnderecoId.ReadOnly = true;
+            inputEnderecoId.Size = new Size(49, 23);
+            inputEnderecoId.TabIndex = 43;
+            inputEnderecoId.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(161, 170);
+            label1.Name = "label1";
+            label1.Size = new Size(18, 18);
+            label1.TabIndex = 42;
+            label1.Text = "Id";
+            // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.DarkSeaGreen;
+            btnEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditar.Location = new Point(1100, 402);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(111, 36);
+            btnEditar.TabIndex = 41;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // menu1
             // 
@@ -112,7 +182,7 @@
             // 
             // inputCep
             // 
-            inputCep.Location = new Point(161, 188);
+            inputCep.Location = new Point(203, 191);
             inputCep.Mask = "00000-000";
             inputCep.Name = "inputCep";
             inputCep.Size = new Size(127, 23);
@@ -123,7 +193,7 @@
             // 
             btnCadastrar.BackColor = Color.DarkSeaGreen;
             btnCadastrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCadastrar.Location = new Point(525, 386);
+            btnCadastrar.Location = new Point(374, 402);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(246, 36);
             btnCadastrar.TabIndex = 12;
@@ -181,14 +251,14 @@
             // 
             // inputNumero
             // 
-            inputNumero.Location = new Point(696, 188);
+            inputNumero.Location = new Point(738, 191);
             inputNumero.Name = "inputNumero";
             inputNumero.Size = new Size(50, 23);
             inputNumero.TabIndex = 6;
             // 
             // inputLogradouro
             // 
-            inputLogradouro.Location = new Point(294, 188);
+            inputLogradouro.Location = new Point(336, 191);
             inputLogradouro.Name = "inputLogradouro";
             inputLogradouro.Size = new Size(390, 23);
             inputLogradouro.TabIndex = 5;
@@ -252,7 +322,7 @@
             // 
             labelNumero.AutoSize = true;
             labelNumero.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelNumero.Location = new Point(694, 167);
+            labelNumero.Location = new Point(736, 170);
             labelNumero.Name = "labelNumero";
             labelNumero.Size = new Size(52, 18);
             labelNumero.TabIndex = 22;
@@ -263,7 +333,7 @@
             // 
             labelLogradouro.AutoSize = true;
             labelLogradouro.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelLogradouro.Location = new Point(460, 167);
+            labelLogradouro.Location = new Point(502, 170);
             labelLogradouro.Name = "labelLogradouro";
             labelLogradouro.Size = new Size(72, 18);
             labelLogradouro.TabIndex = 21;
@@ -274,7 +344,7 @@
             // 
             labelCep.AutoSize = true;
             labelCep.Font = new Font("Trebuchet MS", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelCep.Location = new Point(200, 167);
+            labelCep.Location = new Point(242, 170);
             labelCep.Name = "labelCep";
             labelCep.Size = new Size(29, 18);
             labelCep.TabIndex = 20;
@@ -369,7 +439,7 @@
             // 
             tituloClientes.AutoSize = true;
             tituloClientes.Font = new Font("Trebuchet MS", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
-            tituloClientes.Location = new Point(290, 9);
+            tituloClientes.Location = new Point(312, 9);
             tituloClientes.Name = "tituloClientes";
             tituloClientes.Size = new Size(297, 37);
             tituloClientes.TabIndex = 2;
@@ -400,7 +470,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1321, 450);
             Controls.Add(background);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -410,6 +480,7 @@
             Text = "Clientes";
             background.ResumeLayout(false);
             background.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDados).EndInit();
             ResumeLayout(false);
         }
 
@@ -445,5 +516,10 @@
         private Label labelId;
         private MaskedTextBox inputCep;
         private Menu menu1;
+        private Button btnEditar;
+        private TextBox inputEnderecoId;
+        private Label label1;
+        private DataGridView dataGridViewDados;
+        private Button btnExcluir;
     }
 }

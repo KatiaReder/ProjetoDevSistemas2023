@@ -219,6 +219,24 @@ namespace PizzariaDoZe
             }
         }
 
+        private void buscarCliente_Click(object sender, EventArgs e)
+        {
+            PedidoClientes pedidoClientes = new()
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+            };
 
+            _ = pedidoClientes.ShowDialog();
+        }
+
+        private void cadastrarPedidos_Click(object sender, EventArgs e)
+        {
+            Pedidos pedidos = new()
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+            };
+
+            _ = pedidos.ShowDialog();
+        }
     }
 }

@@ -104,9 +104,31 @@ namespace PizzariaDoZe
                     inputNome.Text = row["nome"].ToString(); ;
                     inputCpf.Text = row["cpf"].ToString(); ;
                     inputTelefone.Text = row["telefone"].ToString(); ;
-
+                    //return;
                 }
-                return;
+
+                if (inputIId.Text == "")
+                {
+                    const string message = "Cliente não encontrado!";
+                    const string message2 = "Deseja cadastrar novo cliente?";
+                    var result = MessageBox.Show(message, "Pizzaria do Zé", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (result == DialogResult.OK)
+                    {
+                        var result2 = MessageBox.Show(message2, "Pizzaria do Zé", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (result2 == DialogResult.OK)
+                        {
+                            Clientes clientes = new()
+                            {
+                                StartPosition = FormStartPosition.CenterScreen,
+                            };
+
+                            _ = clientes.ShowDialog();
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
